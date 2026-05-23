@@ -42,7 +42,7 @@ export default function App() {
     formData.append("resume", file);
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:5000/api/resume/upload", { method: "POST", body: formData });
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/resume/upload`, { method: "POST", body: formData });
       const data = await response.json();
       setAnalysis(data.analysis);
     } catch (error) {
